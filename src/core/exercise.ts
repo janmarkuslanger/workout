@@ -23,6 +23,10 @@ class Exercise {
         return !!this.repetitions && Number.isInteger(this.repetitions) && this.repetitions > 0;
     }
 
+    public shouldEnd(time: number) {
+        return this.time && time >= this.time;
+    }
+
 }
 
 export default Exercise;
