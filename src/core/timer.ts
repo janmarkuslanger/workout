@@ -1,17 +1,23 @@
+type Events = {
+    onTick: (currentTime: number) => void;
+    onStop: (currentTime: number) => void;
+    onReset: () => void;
+};
+
 class Timer {
     private current: number;
     private interval: any;
 
-    constructor(private end: number, private onTick: (time: number) => void) {
+    constructor(private end: number, private events: Events) {
         this.end = end;
         this.current = end;
-        this.onTick = onTick;
+        this.events = events;
     }
 
     public run() {
         this.interval = setInterval(() => {
             this.current -= 1;
-            this.onTick(this.current);
+            this.events.onTick(this.current);
 
             if (this.current <= 0) {
                 this.stop();
@@ -21,10 +27,12 @@ class Timer {
 
     public stop() {
         clearInterval(this.interval);
+        this.events.onStop(this.current);
     }
 
     public reset() {
         this.current = this.end;
+        this.events.onReset();
     }
 
 }
