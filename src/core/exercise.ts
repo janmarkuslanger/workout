@@ -1,4 +1,8 @@
-import { Exercise as Props } from './types';
+type Props = {
+    label: string;
+    time?: number;
+    repetitions?: number;
+}
 
 class Exercise {
     private label: string;
@@ -21,10 +25,6 @@ class Exercise {
 
     public haRepetitions(): boolean {
         return !!this.repetitions && Number.isInteger(this.repetitions) && this.repetitions > 0;
-    }
-
-    public shouldEnd(time: number) {
-        return this.time && time >= this.time;
     }
 
 }
