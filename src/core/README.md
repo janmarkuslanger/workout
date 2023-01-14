@@ -16,8 +16,7 @@ This is the interface for the main component workout.
 It is the only component with method to handle the workout.
 
 Attributes: 
-- name: Descripes the name of a workout
-- rounds: Every workout has n rounds 
+- workout: Workout model
 - state: Stores the current state as an object
 
 Methods:
@@ -26,6 +25,17 @@ Methods:
 - pause(): It should be possible to pause a workout
 - nextExercise(): Go to the next exercise
 - previousExercise(): Go to the previous exercise
+
+# Models
+
+**Workout**
+
+This is the interface for the main component workout. 
+It is the only component with method to handle the workout.
+
+Attributes: 
+- name: Descripes the name of a workout
+- rounds: Every workout has n rounds 
 
 **Round**
 
